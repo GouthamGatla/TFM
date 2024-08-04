@@ -6,13 +6,14 @@
  * @format
  */
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import AppNavigtion from './src/navigation/AppNavigation';
-
+import {PaperProvider} from 'react-native-paper';
 
 function App(): React.JSX.Element {
   return (
+    <PaperProvider>
       <AppNavigtion />
+    </PaperProvider>
   );
 }
 

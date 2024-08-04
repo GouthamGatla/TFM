@@ -2,20 +2,19 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import LottieView from 'lottie-react-native';
+import { Routes } from './AppRoutes';
+import LoginPage from '../screens/login/Login';
+import { TFMColors } from '../themes/Color';
 
 const Stack = createNativeStackNavigator();
-const splashGIF = require('../../assets/images/splashgif.gif')
-
-export const ProfileScreen = () => {
-  return <Text> ProfileScreen </Text>;
-};
+// const splashGIF = require('../../assets/images/splashgif.gif')
 
 export const SplashScreen = ({navigation}: any) => {
-//   setTimeout(() => {
-//     navigation.navigate('Home');
-//   }, 3000);
+  setTimeout(() => {
+    navigation.navigate(Routes.loginScreen);
+  }, 3000);
 
   return (
     <View style={style.splashContainer}>
@@ -35,13 +34,13 @@ const AppNavigtion = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="splashScreen">
         <Stack.Screen
-          name="splashScreen"
+          name={Routes.splashScreen}
           component={SplashScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Home"
-          component={ProfileScreen}
+          name={Routes.loginScreen}
+          component={LoginPage}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
@@ -55,7 +54,7 @@ export const style = StyleSheet.create({
     flexDirection : 'column',
     justifyContent : 'center',
     alignItems : 'center',
-    backgroundColor : '#ffffff',
+    backgroundColor : TFMColors.primary,
   },
   gif : {
     height : 300,
@@ -63,7 +62,7 @@ export const style = StyleSheet.create({
     // backgroundColor : "#F7931E",
   },
   lottieContainer : {
-    backgroundColor : '#F7931E',
+    backgroundColor : TFMColors.secondaryColor,
     borderRadius : 150,
   }
 })
