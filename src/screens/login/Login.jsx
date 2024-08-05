@@ -61,7 +61,7 @@ const style = StyleSheet.create({
   },
   loginCardColor: {
     backgroundColor: TFMColors.primary,
-    height: '70%',
+    height: '80%',
     width: '90%',
   },
   cardText: {
